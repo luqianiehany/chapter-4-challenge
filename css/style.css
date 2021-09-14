@@ -20,6 +20,21 @@ h1{
     text-transform: uppercase;
     width: 95%;
 }
+.result
+{
+    background: #4C9654;
+    border-radius: 10px;
+    transform: rotate(-28.87deg);
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 52px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
 .leftarrow
 {
 font-family: Open Sans;
@@ -73,6 +88,18 @@ h2{
     font-family: sans-serif;
     font-weight: bold;
     padding: 5px;
+}
+.headertitle
+{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #000000;
 }
 .selection{
     display: flex;

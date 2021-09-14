@@ -8,8 +8,7 @@ const showIcon = document.querySelector('.show i');
 const computerShowIcon = document.querySelector('.computer i');
 // The randomClass array below this contains the rock,paper, and scissor Icon from font-awesome.
 const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper","fas fa-hand-scissors"];
-const text = document.getElementById('demo');
-const text2 = document.getElementById('demo2');
+const result = document.getElementById('result');
 
 // Game Functionality: Setting forEach function for the buttons.
 const game = () =>{
@@ -25,54 +24,47 @@ const game = () =>{
            if(showIcon.className === computerShowIcon.className){
                pScore.innerHTML = pScore.innerHTML;
                cScore.innerHTML = cScore.innerHTML;
-               text.innerHTML = "It's a Tie ! ";
-               text.style.color = 'orange';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'orange';
+               result.innerHTML = "DRAW ";
+               result.style.backgroundColor = '#035B0C';
+               result.style.padding = '20px';
            } 
           // if it's not a Tie.
            else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[2]){
                pScore.innerHTML = playerScore;
                playerScore++;
-               text.innerHTML = "It's a Win ! ";
-               text.style.color = 'rgb(1, 146, 1)';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'rgb(1, 146, 1)';
+               result.innerHTML = "PLAYER 1<br>WIN  ";
+               result.style.backgroundColor = '#4C9654';
+               result.style.padding = '20px';
            }else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[1]){
                cScore.innerHTML = computerScore;
                computerScore++;
-               text.innerHTML = "You Loosed ! ";
-               text.style.color = 'red';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'red';
+               result.innerHTML = "COM<br>WIN  ";
+               result.style.backgroundColor = '#4C9654';
+               result.style.padding = '20px';
            }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[2]){
                cScore.innerHTML = computerScore;
                computerScore++;
-               text.innerHTML = "You Loosed ! ";
-               text.style.color = 'red';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'red';
+               result.innerHTML = "COM<br>WIN  ";
+               result.style.backgroundColor = '#4C9654';
+               result.style.padding = '20px';
            }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[0]){
                pScore.innerHTML = playerScore;
                playerScore++;
-               text.innerHTML = "It's a Win ! ";
-               text.style.color = 'rgb(1, 146, 1)';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'rgb(1, 146, 1)';
+               result.innerHTML = "PLAYER 1<br>WIN  ";
+               result.style.backgroundColor = '#4C9654';
+               result.style.padding = '20px';
            }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[0]){
                cScore.innerHTML = computerScore;
                computerScore++;
-               text.innerHTML = "You Loosed ! ";
-               text.style.color = 'red';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'red';
+               result.innerHTML = "COM<br>WIN  ";
+               result.style.backgroundColor = '#4C9654';
+               result.style.padding = '20px';
            }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[1]){
                pScore.innerHTML = playerScore;
                playerScore++;
-               text.innerHTML = "It's a Win ! ";
-               text.style.color = 'rgb(1, 146, 1)';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'rgb(1, 146, 1)';
+               result.innerHTML = "PLAYER 1<br>WIN  ";
+               result.style.backgroundColor = '#4C9654';
+               result.style.padding = '20px';
            }
         });
     });
