@@ -3,51 +3,50 @@ let playerScore = 1;
 const pScore = document.getElementById('playerScore');
 const cScore = document.getElementById('computerScore');
 const buttons = document.querySelectorAll('.selection img');
-const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper","fas fa-hand-scissors"];
-const randomComClasses = ["comrock", "compaper","comscissors"];
+const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper", "fas fa-hand-scissors"];
+const playerIconId = ["rock", "paper", "scissors"];
+const comIconId = ["comrock", "compaper", "comscissors"];
 const result = document.getElementById('result');
 
 const game = () =>{
     buttons.forEach(btn =>{
         btn.addEventListener('click',(e)=>{
 			document.getElementById("vs").style.display = "none";
-			document.getElementById("rock").style.pointerEvents = "none";
-			document.getElementById("paper").style.pointerEvents = "none";
-			document.getElementById("scissors").style.pointerEvents = "none";
-			document.getElementById("rock").classList.remove("selected");
-			document.getElementById("paper").classList.remove("selected");
-			document.getElementById("scissors").classList.remove("selected");
-			document.getElementById("comrock").classList.remove("selected");
-			document.getElementById("compaper").classList.remove("selected");
-			document.getElementById("comscissors").classList.remove("selected");
+			
+			for(let i=0;i<=2;i++)
+			{
+				document.getElementById(playerIconId[i]).style.pointerEvents = "none";
+				document.getElementById(playerIconId[i]).classList.remove("selected");
+				document.getElementById(comIconId[i]).classList.remove("selected");
+			}
 
 			let clickedBtn = e.target.className;
 			e.target.classList.add("selected");
 
 			setTimeout(function() {
-				let randomNum = Math.floor(Math.random() * randomComClasses.length);
-				document.getElementById(randomComClasses[randomNum]).classList.add("selected");
+				let randomNum = Math.floor(Math.random() * comIconId.length);
+				document.getElementById(comIconId[randomNum]).classList.add("selected");
 				setTimeout(function() {
-					document.getElementById(randomComClasses[randomNum]).classList.remove("selected");
-					randomNum = Math.floor(Math.random() * randomComClasses.length);
+					document.getElementById(comIconId[randomNum]).classList.remove("selected");
+					randomNum = Math.floor(Math.random() * comIconId.length);
 					setTimeout(function() {
-						document.getElementById(randomComClasses[randomNum]).classList.add("selected");
+						document.getElementById(comIconId[randomNum]).classList.add("selected");
 						setTimeout(function() {
-							document.getElementById(randomComClasses[randomNum]).classList.remove("selected");
-							randomNum = Math.floor(Math.random() * randomComClasses.length);
+							document.getElementById(comIconId[randomNum]).classList.remove("selected");
+							randomNum = Math.floor(Math.random() * comIconId.length);
 							setTimeout(function() {
-								document.getElementById(randomComClasses[randomNum]).classList.add("selected");
+								document.getElementById(comIconId[randomNum]).classList.add("selected");
 								setTimeout(function() {
-									document.getElementById(randomComClasses[randomNum]).classList.remove("selected");
-									randomNum = Math.floor(Math.random() * randomComClasses.length);
+									document.getElementById(comIconId[randomNum]).classList.remove("selected");
+									randomNum = Math.floor(Math.random() * comIconId.length);
 									setTimeout(function() {
-										document.getElementById(randomComClasses[randomNum]).classList.add("selected");
+										document.getElementById(comIconId[randomNum]).classList.add("selected");
 										setTimeout(function() {
-											document.getElementById(randomComClasses[randomNum]).classList.remove("selected");
+											document.getElementById(comIconId[randomNum]).classList.remove("selected");
 											
 											randomNum = Math.floor(Math.random() * randomClasses.length);
 											let computerSelected = randomClasses[randomNum];
-											document.getElementById(randomComClasses[randomNum]).classList.add("selected");
+											document.getElementById(comIconId[randomNum]).classList.add("selected");
 
 											if(clickedBtn === computerSelected)
 											{
@@ -113,9 +112,10 @@ const game = () =>{
 												result.classList.remove("resultlose");
 											}
 											
-											document.getElementById("rock").style.pointerEvents = "initial";
-											document.getElementById("paper").style.pointerEvents = "initial";
-											document.getElementById("scissors").style.pointerEvents = "initial";
+											for(let i=0;i<=2;i++)
+											{
+												document.getElementById(playerIconId[i]).style.pointerEvents = "initial";
+											}
 											
 										}, 50);
 									}, 50);
@@ -129,3 +129,22 @@ const game = () =>{
     });
 }
 game();
+
+function refresh()
+{
+	pScore.innerHTML = 0;
+	cScore.innerHTML = 0;
+	playerScore = 1;
+	computerScore = 1;
+	
+	document.getElementById("vs").style.display = "block";
+	result.innerHTML = "";
+	result.classList.remove("resultwin", "resultlose", "resultdraw");
+	
+	for(let i=0;i<=2;i++)
+	{
+		document.getElementById(playerIconId[i]).style.pointerEvents = "initial";
+		document.getElementById(playerIconId[i]).classList.remove("selected");
+		document.getElementById(comIconId[i]).classList.remove("selected");
+	}
+}
