@@ -4,42 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binar Challenge FW C4</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/style.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <script src="js/app.js" defer></script>
 </head>
 <body>
-    <h1><span class="leftarrow"><</span><img src="images/logo.png">Rock Paper Scissors</h1>
-    <h2 id="demo"></h2>
-<!--  The Container  -->
+	<h1><span class="leftarrow"><</span> <img src="images/logo.png"> Rock Paper Scissors</h1>
+
     <div class="container">
-<!--   The first section     -->
         <div class="section">
             <div class="info">
-                <h3>You :</h3><span id="playerScore">0</span>
+                <p class="headertitle">PLAYER 1 (<span id="playerScore">0</span>)</p>
             </div>
-            <div class="show">
-                <i class="fas fa-hand-rock"></i>
-            </div>
+			<br>
+            <div class="selection">
+				<img class="fas fa-hand-rock" id="rock" src="images/batu.png">
+				<br><br>
+				<img class="fas fa-hand-paper" id="paper" src="images/kertas.png">
+				<br><br>
+				<img class="fas fa-hand-scissors" id="scissors" src="images/gunting.png">
+			</div>
         </div>
-<!--   The second section     -->
+		<div class="resultsection">
+			<p id="vs">VS</p>
+			<p class="result" id="result"></p>
+        </div>
         <div class="section">
             <div class="info">
-                <h3>Computer :</h3><span id="computerScore">0</span>
+				<p class="headertitle">COM (<span id="computerScore">0</span>)</p>
             </div>
+			<br>
             <div class="show computer">
-                <i class="fas fa-hand-scissors"></i>
+				<img class="fas fa-hand-rock" id="comrock" src="images/batu.png">
+				<br><br>
+				<img class="fas fa-hand-paper" id="compaper" src="images/kertas.png">
+				<br><br>
+				<img class="fas fa-hand-scissors" id="comscissors" src="images/gunting.png">
             </div>
         </div>
-    </div>
-    <p class="result" id="result"></p>
-    <p class="headertitle">PLAYER 1</p>
-<!-- This selection div contains the buttons   -->
-    <div class="selection">
-        <button class="fas fa-hand-rock" id="rock"></button>
-        <button class="fas fa-hand-paper" id="paper"></button>
-        <button class="fas fa-hand-scissors" id="scissors"></button>
     </div>
 </body>
 </html>

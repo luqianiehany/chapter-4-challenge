@@ -1,74 +1,105 @@
-// Setting the scores and selecting our HTML elements.
 let computerScore = 1;
 let playerScore = 1;
 const pScore = document.getElementById('playerScore');
 const cScore = document.getElementById('computerScore');
-const buttons = document.querySelectorAll('.selection button');
-const showIcon = document.querySelector('.show i');
-const computerShowIcon = document.querySelector('.computer i');
-// The randomClass array below this contains the rock,paper, and scissor Icon from font-awesome.
+const buttons = document.querySelectorAll('.selection img');
 const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper","fas fa-hand-scissors"];
 const result = document.getElementById('result');
 
-// Game Functionality: Setting forEach function for the buttons.
 const game = () =>{
     buttons.forEach(btn =>{
         btn.addEventListener('click',(e)=>{
-        // Random rock paper scissor for the computer and the player
-           let clickedBtn = e.target.className;
-           showIcon.className = clickedBtn;
-           let randomNum = Math.floor(Math.random() * randomClasses.length);
-           computerShowIcon.className = randomClasses[randomNum];
-           // Game Score.
-           // If it's a Tie .
-           if(showIcon.className === computerShowIcon.className){
-               pScore.innerHTML = pScore.innerHTML;
-               cScore.innerHTML = cScore.innerHTML;
-               result.innerHTML = "DRAW ";
-               result.style.backgroundColor = '#035B0C';
-               result.style.padding = '20px';
-           } 
-          // if it's not a Tie.
-           else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[2]){
-               pScore.innerHTML = playerScore;
-               playerScore++;
-               result.innerHTML = "PLAYER 1<br>WIN  ";
-               result.style.backgroundColor = '#4C9654';
-               result.style.padding = '20px';
-           }else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[1]){
-               cScore.innerHTML = computerScore;
-               computerScore++;
-               result.innerHTML = "COM<br>WIN  ";
-               result.style.backgroundColor = '#4C9654';
-               result.style.padding = '20px';
-           }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[2]){
-               cScore.innerHTML = computerScore;
-               computerScore++;
-               result.innerHTML = "COM<br>WIN  ";
-               result.style.backgroundColor = '#4C9654';
-               result.style.padding = '20px';
-           }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[0]){
-               pScore.innerHTML = playerScore;
-               playerScore++;
-               result.innerHTML = "PLAYER 1<br>WIN  ";
-               result.style.backgroundColor = '#4C9654';
-               result.style.padding = '20px';
-           }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[0]){
-               cScore.innerHTML = computerScore;
-               computerScore++;
-               result.innerHTML = "COM<br>WIN  ";
-               result.style.backgroundColor = '#4C9654';
-               result.style.padding = '20px';
-           }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[1]){
-               pScore.innerHTML = playerScore;
-               playerScore++;
-               result.innerHTML = "PLAYER 1<br>WIN  ";
-               result.style.backgroundColor = '#4C9654';
-               result.style.padding = '20px';
-           }
+			document.getElementById("vs").style.display = "none";
+			document.getElementById("rock").style.pointerEvents = "none";
+			document.getElementById("paper").style.pointerEvents = "none";
+			document.getElementById("scissors").style.pointerEvents = "none";
+			document.getElementById("rock").classList.remove("selected");
+			document.getElementById("paper").classList.remove("selected");
+			document.getElementById("scissors").classList.remove("selected");
+			document.getElementById("comrock").classList.remove("selected");
+			document.getElementById("compaper").classList.remove("selected");
+			document.getElementById("comscissors").classList.remove("selected");
+
+			let clickedBtn = e.target.className;
+			e.target.classList.add("selected");
+
+			let randomNum = Math.floor(Math.random() * randomClasses.length);
+			let computerSelected = randomClasses[randomNum];
+			if(randomNum == 0)
+				document.getElementById("comrock").classList.add("selected");
+			else if(randomNum == 1)
+				document.getElementById("compaper").classList.add("selected");
+			else
+				document.getElementById("comscissors").classList.add("selected");
+
+			if(clickedBtn === computerSelected)
+			{
+				pScore.innerHTML = pScore.innerHTML;
+				cScore.innerHTML = cScore.innerHTML;
+				result.innerHTML = "DRAW";
+				result.classList.add("resultdraw");
+				result.classList.remove("resultwin");
+				result.classList.remove("resultlose");
+			} 
+			else if(clickedBtn === randomClasses[0] && computerSelected === randomClasses[2])
+			{
+				pScore.innerHTML = playerScore;
+				playerScore++;
+				result.innerHTML = "PLAYER 1<br>WIN";
+				result.classList.add("resultwin");
+				result.classList.remove("resultdraw");
+				result.classList.remove("resultlose");
+			}
+			else if(clickedBtn === randomClasses[0] && computerSelected === randomClasses[1])
+			{
+				cScore.innerHTML = computerScore;
+				computerScore++;
+				result.innerHTML = "COM<br>WIN";
+				result.classList.add("resultlose");
+				result.classList.remove("resultdraw");
+				result.classList.remove("resultwin");
+			}
+			else if(clickedBtn === randomClasses[1] && computerSelected === randomClasses[2])
+			{
+				cScore.innerHTML = computerScore;
+				computerScore++;
+				result.innerHTML = "COM<br>WIN";
+				result.classList.add("resultlose");
+				result.classList.remove("resultdraw");
+				result.classList.remove("resultwin");
+			}
+			else if(clickedBtn === randomClasses[1] && computerSelected === randomClasses[0])
+			{
+				pScore.innerHTML = playerScore;
+				playerScore++;
+				result.innerHTML = "PLAYER 1<br>WIN";
+				result.classList.add("resultwin");
+				result.classList.remove("resultdraw");
+				result.classList.remove("resultlose");
+			}
+			else if(clickedBtn === randomClasses[2] && computerSelected === randomClasses[0])
+			{
+				cScore.innerHTML = computerScore;
+				computerScore++;
+				result.innerHTML = "COM<br>WIN";
+				result.classList.add("resultlose");
+				result.classList.remove("resultdraw");
+				result.classList.remove("resultwin");
+			}
+			else if(clickedBtn === randomClasses[2] && computerSelected === randomClasses[1])
+			{
+				pScore.innerHTML = playerScore;
+				playerScore++;
+				result.innerHTML = "PLAYER 1<br>WIN";
+				result.classList.add("resultwin");
+				result.classList.remove("resultdraw");
+				result.classList.remove("resultlose");
+			}
+			
+			document.getElementById("rock").style.pointerEvents = "initial";
+			document.getElementById("paper").style.pointerEvents = "initial";
+			document.getElementById("scissors").style.pointerEvents = "initial";
         });
     });
 }
-// Calling the function.
 game();
-// This function contains all the game logic.
