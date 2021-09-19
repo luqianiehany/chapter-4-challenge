@@ -22,6 +22,7 @@ const game = () =>{
 
 			let clickedBtn = e.target.className;
 			e.target.classList.add("selected");
+			console.log("Selected "+ btn.id);
 
 			setTimeout(function() {
 				let randomNum = Math.floor(Math.random() * comIconId.length);
@@ -53,6 +54,7 @@ const game = () =>{
 												pScore.innerHTML = pScore.innerHTML;
 												cScore.innerHTML = cScore.innerHTML;
 												result.innerHTML = "DRAW";
+												console.log("DRAW");
 												result.classList.add("resultdraw");
 												result.classList.remove("resultwin");
 												result.classList.remove("resultlose");
@@ -62,6 +64,7 @@ const game = () =>{
 												pScore.innerHTML = playerScore;
 												playerScore++;
 												result.innerHTML = "PLAYER 1<br>WIN";
+												console.log("PLAYER 1 WIN");
 												result.classList.add("resultwin");
 												result.classList.remove("resultdraw");
 												result.classList.remove("resultlose");
@@ -71,6 +74,7 @@ const game = () =>{
 												cScore.innerHTML = computerScore;
 												computerScore++;
 												result.innerHTML = "COM<br>WIN";
+												console.log("COM WIN");
 												result.classList.add("resultlose");
 												result.classList.remove("resultdraw");
 												result.classList.remove("resultwin");
@@ -80,6 +84,7 @@ const game = () =>{
 												cScore.innerHTML = computerScore;
 												computerScore++;
 												result.innerHTML = "COM<br>WIN";
+												console.log("COM WIN");
 												result.classList.add("resultlose");
 												result.classList.remove("resultdraw");
 												result.classList.remove("resultwin");
@@ -89,6 +94,7 @@ const game = () =>{
 												pScore.innerHTML = playerScore;
 												playerScore++;
 												result.innerHTML = "PLAYER 1<br>WIN";
+												console.log("PLAYER 1 WIN");
 												result.classList.add("resultwin");
 												result.classList.remove("resultdraw");
 												result.classList.remove("resultlose");
@@ -98,6 +104,7 @@ const game = () =>{
 												cScore.innerHTML = computerScore;
 												computerScore++;
 												result.innerHTML = "COM<br>WIN";
+												console.log("COM WIN");
 												result.classList.add("resultlose");
 												result.classList.remove("resultdraw");
 												result.classList.remove("resultwin");
@@ -107,6 +114,7 @@ const game = () =>{
 												pScore.innerHTML = playerScore;
 												playerScore++;
 												result.innerHTML = "PLAYER 1<br>WIN";
+												console.log("PLAYER 1 WIN");
 												result.classList.add("resultwin");
 												result.classList.remove("resultdraw");
 												result.classList.remove("resultlose");
